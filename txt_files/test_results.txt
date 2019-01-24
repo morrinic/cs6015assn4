@@ -1,0 +1,6 @@
+Quadrilateral
+Rhombus
+Rectangle
+Square
+Kite
+Trapezoid
