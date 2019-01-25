@@ -1,6 +1,9 @@
 Quadrilateral
+Parallelogram
 Rhombus
 Rectangle
 Square
 Kite
+Kite
+Trapezoid
 Trapezoid

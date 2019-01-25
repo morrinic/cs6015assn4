@@ -1,10 +1,14 @@
 all: main
 
-sud: main.cpp
-	gcc -O main.cpp -std=c99 -o main
+main: main.cpp
+	clang++ main.cpp
 
-test: sud
+test: main
 	./test.sh
 
+run: main
+	./a.out
+	
 clean:
 	rm -f main
+	rm -f a.out
