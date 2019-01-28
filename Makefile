@@ -4,7 +4,7 @@ main: main.cpp
 	clang++ main.cpp -o main
 
 test: main
-	./test.sh
+	./test2.sh
 	
 clean:
 	rm -f main
