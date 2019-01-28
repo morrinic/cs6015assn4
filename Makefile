@@ -8,11 +8,3 @@ test: main
 	
 clean:
 	rm -f main
-
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode10.1
-    
-    - os: osx
-      osx_image: xcode9.4
