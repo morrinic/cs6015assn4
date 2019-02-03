@@ -10,6 +10,7 @@
 #include <vector>
 #include <fstream>
 #include <math.h>
+#include <sstream>
 
 struct Point {int x; int y;};
 struct Angle {Point a; Point b; Point c; float degrees;};
@@ -45,54 +46,6 @@ float calcDeg(Point a, Point b, Point c){
 float slope(float ax, float ay, float bx, float by){
     
     return (by - ay) / (bx - ax);
-    
-}
-
-/*
- * DATA INPUT FXNS
- * Stores user inputted quadrilateral data
- */
-
-//Stores a quadrilateral
-Quad storeQuad(Point a, Point b, Point c, Point d){
-    
-    Angle angA = {d,a,b, calcDeg(d,a,b)};
-    Angle angB = {a,b,c, calcDeg(a,b,c)};
-    Angle angC = {b,c,d, calcDeg(b,c,d)};
-    Angle angD = {c,d,a, calcDeg(c,b,a)};
-    
-    Quad quad = {calcLength(a,b), calcLength(b,c), calcLength(c,d), calcLength(d,a), angA, angB, angC, angD};
-    
-    return quad;
-    
-}
-
-//Stores input data
-std::vector<Quad> storeInputData(){
-    
-    std::vector<Quad> data;
-    
-    //    std::ifstream inData(fileName);
-    while(!std::cin.eof()){
-        
-        int x,y;
-        
-        Point a = {0,0};
-        
-        std::cin >> x >> y;
-        Point b = {x,y};
-        
-        std::cin >> x >> y;
-        Point c = {x,y};
-        
-        std::cin >> x >> y;
-        Point d = {x,y};
-        
-        data.push_back(storeQuad(a, b, c, d));
-        
-    }
-    
-    return data;
     
 }
 
@@ -174,7 +127,7 @@ bool isTrapezoid(Quad quad){
         }
     }
     
-        return false;
+    return false;
     
 }
 
@@ -228,6 +181,154 @@ void classifyQuad(Quad quad){
     }
 }
 
+/*
+ * ERROR CHECKING FUNCTIONS
+ */
+
+void error(std::string message){
+    std::cout << message << std::endl;
+    exit(1);
+}
+
+void checkLength(std::vector<std::string> lines){
+    
+    static int length = lines.size();
+    
+    //Check number of points
+    if(length < 6 | length > 6){
+        error("error 1");
+    }
+    
+}
+
+void checkRange(int digits[6]){
+    
+    for(int i = 0; i < 6; i++){
+        if(digits[i] < 0| digits[i] >100){
+            error("error 1");
+        }
+    }
+    
+}
+
+int convertToDigit(std::string value){
+    
+    if(!isdigit(value.at(0))){
+        error("error 1");
+    }
+    
+    int digit = atoi(&value.at(0));
+    
+    //Check range
+    if( digit < 0 | digit > 100){
+        error("error 1");
+    }
+    
+    return digit;
+    
+}
+
+void checkForErrors(Point a, Point b, Point c, Point d){
+    
+    
+    //    checkCollisions(a,b,c,d);
+    //
+    //    checkThree(a,b,c,d);
+    //
+    //    checkFour(a,b,c,d);
+    
+}
+
+std::vector<std::string> parseLine(std::string line){
+    
+    std::stringstream ss(line);
+    std::string value;
+    std::vector<std::string> parsed;
+    while (std::getline(ss, value, ' '))
+    {
+        parsed.push_back(value);
+    }
+    
+    checkLength(parsed);
+    
+    return parsed;
+    
+}
+
+/*
+ * DATA INPUT FXNS
+ * Stores user inputted quadrilateral data
+ */
+
+//Stores a quadrilateral
+Quad storeQuad(Point a, Point b, Point c, Point d){
+    
+    Angle angA = {d,a,b, calcDeg(d,a,b)};
+    Angle angB = {a,b,c, calcDeg(a,b,c)};
+    Angle angC = {b,c,d, calcDeg(b,c,d)};
+    Angle angD = {c,d,a, calcDeg(c,b,a)};
+    
+    Quad quad = {calcLength(a,b), calcLength(b,c), calcLength(c,d), calcLength(d,a), angA, angB, angC, angD};
+    
+    return quad;
+    
+}
+
+//Stores input data
+std::vector<Quad> storeInputData(){
+    
+    std::vector<Quad> data;
+    
+    while(!std::cin.eof()){
+        
+        //Input line
+        std::string line;
+        getline(std::cin, line);
+        
+        //Parse line
+        std::stringstream ss(line);
+        std::string value;
+        std::vector<std::string> parsed;
+        while (std::getline(ss, value, ' '))
+        {
+            parsed.push_back(value);
+        }
+        
+        checkLength(parsed);
+        
+        //Convert to integers
+        int digits[6];
+        for(int i = 0; i < parsed.size(); i++){
+            
+            if(isdigit(parsed[i][0])){
+                int digit = stoi(parsed[i]);
+                digits[i] = digit;
+            } else {
+                error("error 1");
+            }
+        }
+        
+        checkRange(digits);
+        
+        Point a = {0,0};
+        Point b = {digits[0],digits[1]};
+        Point c = {digits[2],digits[3]};
+        Point d = {digits[4],digits[5]};
+        
+        //Check points
+        checkForErrors(a, b, c, d);
+        
+        data.push_back(storeQuad(a, b, c, d));
+        
+    }
+    
+    return data;
+    
+}
+
+/*
+ * MAIN
+ */
 
 int main(int argc, const char * argv[]) {
     
