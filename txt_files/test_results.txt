@@ -4,6 +4,5 @@ rhombus
 rectangle
 square
 kite
-kite
 trapezoid
 trapezoid
