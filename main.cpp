@@ -211,23 +211,6 @@ void checkRange(double digits[6]){
     
 }
 
-int convertToDigit(std::string value){
-    
-    if(!isdigit(value.at(0))){
-        error("error 1");
-    }
-    
-    int digit = atoi(&value.at(0));
-    
-    //Check range
-    if( digit < 0 | digit > 100){
-        error("error 1");
-    }
-    
-    return digit;
-    
-}
-
 bool isSamePoint(Point a, Point b){
     if(a.x == b.x && a.y == b.y){
         return true;
@@ -380,15 +363,7 @@ std::vector<Quad> storeInputData(){
         getline(std::cin, line);
         
         //Parse line
-        std::stringstream ss(line);
-        std::string value;
-        std::vector<std::string> parsed;
-        while (std::getline(ss, value, ' '))
-        {
-            parsed.push_back(value);
-        }
-        
-        checkLength(parsed);
+        std::vector<std::string> parsed = parseLine(line);
         
         //Convert to digits
         double digits[6];
