@@ -1,2 +1,2 @@
-./main <  test_data.txt > output_results.txt
-diff output_results.txt test_results.txt
+./main <  txt_files/test_data.txt > txt_files/output_results.txt
+diff txt_files/output_results.txt txt_files/test_results.txt

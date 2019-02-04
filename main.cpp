@@ -12,7 +12,7 @@
 #include <math.h>
 #include <sstream>
 
-struct Point {int x; int y;};
+struct Point {double x; double y;};
 struct Angle {Point a; Point b; Point c; float degrees;};
 struct Quad {float ab; float bc; float cd; float da; Angle a; Angle b; Angle c; Angle d;};
 
@@ -55,7 +55,7 @@ float slope(float ax, float ay, float bx, float by){
  */
 
 //Determines if a quadrilateral is a parallelogram
-bool isParallel(Quad quad){
+bool isParallelogram(Quad quad){
     
     //Opposite sides are congruent
     if(quad.ab == quad.cd && quad.bc == quad.da){
@@ -173,7 +173,7 @@ void classifyNotParallel(Quad quad){
 void classifyQuad(Quad quad){
     
     //Determine if parallelogram
-    if(isParallel(quad)){
+    if(isParallelogram(quad)){
         classifyParallel(quad);
     } else {
         
@@ -201,7 +201,7 @@ void checkLength(std::vector<std::string> lines){
     
 }
 
-void checkRange(int digits[6]){
+void checkRange(double digits[6]){
     
     for(int i = 0; i < 6; i++){
         if(digits[i] < 0| digits[i] >100){
@@ -228,14 +228,93 @@ int convertToDigit(std::string value){
     
 }
 
+bool isSamePoint(Point a, Point b){
+    if(a.x == b.x && a.y == b.y){
+        return true;
+    }
+    return false;
+}
+
+void checkPointColl(Point a, Point b, Point c, Point d){
+    
+    if(isSamePoint(a,b) | isSamePoint(b,c) | isSamePoint(c,d) | isSamePoint(d,a)){
+        error("error 2");
+        exit(1);
+    }
+    
+}
+
+//Modified from www.geeksforgeeks.org/program-for-point-of-intersection-of-two-lines
+bool isOnLine(Point a, Point b, Point intersect){
+    
+    double ax, bx, ay, by;
+    
+    //Determine max and min x values
+    if(a.x >= b.x){
+        ax = b.x;
+        bx = a.x;
+        
+    } else {
+        ax = a.x;
+        bx = b.x;
+    }
+    
+    //Determine max and min y values
+    if(a.y >= b.y){
+        ay = b.y;
+        by = a.y;
+        
+    } else {
+        ay = a.y;
+        by = b.y;
+    }
+    
+    //Determine if intersect is on line
+    if(ax <= intersect.x && intersect.x <= bx && ay <= intersect.y && intersect.y <= by){
+        return true;
+    }
+    
+    return false;
+}
+
+//Modified from www.geeksforgeeks.org/program-for-point-of-intersection-of-two-lines
+void checkLineColl(Point a, Point b, Point c, Point d){
+    
+    //Line AB = c1 = a1x + b1y
+    double a1 = c.y - b.y; //expect 1
+    double b1 = b.x - c.x; //expect -7
+    double c1 = a1*(b.x) + b1*(b.y); //expect -60
+    
+    //Line CD = c2 = a2x + b2y
+    double a2 = a.y - d.y; //expect -3
+    double b2 = d.x - a.x; //expect 9
+    double c2 = a2*(d.x) + b2*(d.y); //expect 0
+    
+    double determinant = a1*b2 - a2*b1; //expect -12
+    
+    if(determinant != 0){
+        double x = (b2*c1 - b1*c2)/determinant; //expect 45
+        double y = (a1*c2 - a2*c1)/determinant; //expect 15
+        Point intersect = {x,y};
+        
+        if(isOnLine(b,c,intersect) && isOnLine(d,a,intersect)){
+            error("error 3");
+            exit(1);
+        }
+        
+    }
+    
+}
+
 void checkForErrors(Point a, Point b, Point c, Point d){
     
+    //Confirm no points are the same
+    checkPointColl(a,b,c,d);
     
-    //    checkCollisions(a,b,c,d);
-    //
-    //    checkThree(a,b,c,d);
-    //
-    //    checkFour(a,b,c,d);
+    //Confirm no lines cross
+    checkLineColl(a,b,c,d);
+    
+    //Confirm no 3 points are colinear
     
 }
 
@@ -296,12 +375,12 @@ std::vector<Quad> storeInputData(){
         
         checkLength(parsed);
         
-        //Convert to integers
-        int digits[6];
+        //Convert to digits
+        double digits[6];
         for(int i = 0; i < parsed.size(); i++){
             
             if(isdigit(parsed[i][0])){
-                int digit = stoi(parsed[i]);
+                double digit = stoi(parsed[i]);
                 digits[i] = digit;
             } else {
                 error("error 1");
