@@ -4,4 +4,5 @@
 ./main < txt_files/rhombus.txt | grep 'rhombus' &&
 ./main < txt_files/square.txt | grep 'square' &&
 ./main < txt_files/trapezoid1.txt | grep 'trapezoid' &&
-./main < txt_files/trapezoid2.txt | grep 'trapezoid'
+./main < txt_files/trapezoid2.txt | grep 'trapezoid' &&
+./main < txt_files/error1_add_points.txt | grep 'error 1'
