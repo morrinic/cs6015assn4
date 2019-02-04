@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  assignment3
+//  Classifying Quadrilaterals Program
 //
 //  Created by Nicole Morris on 1/16/19.
 //  Copyright © 2019 Nicole Morris. All rights reserved.
@@ -306,6 +306,20 @@ void checkLineColl(Point a, Point b, Point c, Point d){
     
 }
 
+//Modified from www.geeksforgeeks.org/program-check-three-points-collinear
+double calcTriArea(Point a, Point b, Point c){
+    return a.x * (b.y-c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y);
+}
+
+void checkCollinear(Point a, Point b, Point c, Point d){
+    
+    if(calcTriArea(a,b,c) == 0 || calcTriArea(b,c,d) == 0 || calcTriArea(c,d,a) == 0 || calcTriArea(d,a,b) == 0){
+        error("error 4");
+        exit(1);
+    }
+    
+}
+
 void checkForErrors(Point a, Point b, Point c, Point d){
     
     //Confirm no points are the same
@@ -314,7 +328,8 @@ void checkForErrors(Point a, Point b, Point c, Point d){
     //Confirm no lines cross
     checkLineColl(a,b,c,d);
     
-    //Confirm no 3 points are colinear
+    //Confirm no 3 points are collinear
+    checkCollinear(a,b,c,d);
     
 }
 
@@ -422,3 +437,4 @@ int main(int argc, const char * argv[]) {
     return 0;
     
 }
+
