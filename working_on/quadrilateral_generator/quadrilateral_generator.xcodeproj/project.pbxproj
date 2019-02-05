@@ -12,6 +12,7 @@
 		D26BC5732209AE8200C26F3E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26BC5722209AE8200C26F3E /* main.cpp */; };
 		D26BC58E2209B99D00C26F3E /* square_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26BC58C2209B99D00C26F3E /* square_generator.cpp */; };
 		D26BC5912209B9DF00C26F3E /* quadrilateral_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26BC58F2209B9DF00C26F3E /* quadrilateral_generator.cpp */; };
+		D2BC1667220A0EAD003CD459 /* parallelogram_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		D26BC58D2209B99D00C26F3E /* square_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = square_generator.hpp; sourceTree = "<group>"; };
 		D26BC58F2209B9DF00C26F3E /* quadrilateral_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quadrilateral_generator.cpp; sourceTree = "<group>"; };
 		D26BC5902209B9DF00C26F3E /* quadrilateral_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quadrilateral_generator.hpp; sourceTree = "<group>"; };
+		D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parallelogram_generator.cpp; sourceTree = "<group>"; };
+		D2BC1666220A0EAD003CD459 /* parallelogram_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = parallelogram_generator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				D2248F642209DA3300406EED /* rectangle_generator.cpp */,
 				D2248F652209DA3300406EED /* rectangle_generator.hpp */,
 				D201D8B22209F8520001C705 /* rhombus_generator.cpp */,
+				D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */,
+				D2BC1666220A0EAD003CD459 /* parallelogram_generator.hpp */,
 				D201D8B32209F8520001C705 /* rhombus_generator.hpp */,
 			);
 			path = quadrilateral_generator;
@@ -143,6 +148,7 @@
 				D26BC58E2209B99D00C26F3E /* square_generator.cpp in Sources */,
 				D26BC5732209AE8200C26F3E /* main.cpp in Sources */,
 				D2248F662209DA3300406EED /* rectangle_generator.cpp in Sources */,
+				D2BC1667220A0EAD003CD459 /* parallelogram_generator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,6 @@ std::string generate_rectangle(){
     //Generate wide rectangle
     if(randomBoolean()){
         
-        //Seed points for square that is 100% of maximum size
         b = {100,0};
         c = {100,99};
         d = {0,99};
