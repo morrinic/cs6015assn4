@@ -1,3 +1,4 @@
+./main < txt_files/dart.txt | grep 'dart' &&
 ./main < txt_files/kite1.txt | grep 'kite' &&
 ./main < txt_files/quad.txt | grep 'quadrilateral' &&
 ./main < txt_files/rectangle.txt | grep 'rectangle' &&
