@@ -1,7 +1,7 @@
 #Compile all source code (update any changes)
-clang++ -std=c++11 -c general.cpp kite_generator.cpp parallelogram_generator.cpp 
-clang++ -std=c++11 -c rectangle_generator.cpp rhombus_generator.cpp square_generator.cpp 
-clang++ -std=c++11 -c trapezoid_generator.cpp quadrilateral_generator.cpp 
+clang++ -std=c++11 -c quadrilateral_generator/general.cpp quadrilateral_generator/kite_generator.cpp quadrilateral_generator/parallelogram_generator.cpp 
+clang++ -std=c++11 -c quadrilateral_generator/rectangle_generator.cpp quadrilateral_generator/rhombus_generator.cpp quadrilateral_generator/square_generator.cpp 
+clang++ -std=c++11 -c quadrilateral_generator/trapezoid_generator.cpp quadrilateral_generator/quadrilateral_generator.cpp 
 
 #Link files to generate executables (update any changes)
 clang++ -o square general.o square_generator.o
