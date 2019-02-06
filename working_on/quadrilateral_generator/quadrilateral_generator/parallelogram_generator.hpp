@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "general.hpp"
 
 //Driver fxn: returns string of 3 points for parallelogram (assumes point a is 0,0)
 std::string generate_parallelogram();

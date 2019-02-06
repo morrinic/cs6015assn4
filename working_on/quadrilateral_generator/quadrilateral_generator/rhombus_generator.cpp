@@ -7,9 +7,7 @@
 //
 
 #include "quadrilateral_generator.hpp"
-#include "rhombus_generator.hpp"
-
-#include <vector>
+#include "general.hpp"
 
 //Helper fxn: modifies points based on random number
 void modifyRhombus(double& random, Point& b, Point& c, Point& d){
@@ -51,7 +49,6 @@ std::string generate_rhombus(){
     
     //Generate random growth integer
     double random = random_max_8();
-//    std::cout << random << std::endl;
     
     //Modify points based on random percentage
     modifyRhombus(random,b,c,d);

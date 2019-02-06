@@ -7,7 +7,7 @@
 //
 
 #include "square_generator.hpp"
-#include "quadrilateral_generator.hpp"
+#include "general.hpp"
 
 //Helper fxn: modifies points based on random number
 void modifySquare(double& random, Point& b, Point& c, Point& d){

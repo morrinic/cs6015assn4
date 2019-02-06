@@ -7,15 +7,14 @@
 //
 
 #include "parallelogram_generator.hpp"
-#include "quadrilateral_generator.hpp"
-
-#include <iostream>
+#include "general.hpp"
 
 //Driver fxn: returns string of 3 points for parallelogram (assumes point a is 0,0)
 std::string generate_parallelogram(){
     
     Point b,c,d;
     bool randBool = randomBoolean();
+    
     //Generate wide parallelogram
     if(randBool){
         
@@ -23,7 +22,7 @@ std::string generate_parallelogram(){
         c = {3,1};
         d = {1,1};
         
-        //Generate tall parallelogram
+    //Generate tall parallelogram
     } else {
         b = {1,1};
         c = {1,3};

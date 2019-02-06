@@ -11,6 +11,8 @@
 #include "rectangle_generator.hpp"
 #include "rhombus_generator.hpp"
 #include "parallelogram_generator.hpp"
+#include "trapezoid_generator.hpp"
+#include "kite_generator.hpp"
 
 #include <iostream>
 
@@ -31,22 +33,22 @@ int main(int argc, const char * argv[]) {
 //        std::cout << generate_rhombus() << std::endl;
 //    }
     
-    //Generate random parallelogram
-    for(int i = 0; i < 100; i++){
-        std::cout << generate_parallelogram() << std::endl;
-    }
+//    //Generate random parallelogram
+//    for(int i = 0; i < 100; i++){
+//        std::cout << generate_parallelogram() << std::endl;
+//    }
     
-    //Generate random trapezoid
+//    //Generate random trapezoid
 //    for(int i = 0; i < 100; i++){
 //        std::cout << generate_trapezoid() << std::endl;
 //    }
     
-    //Generate random kite
+//    //Generate random kite
 //    for(int i = 0; i < 100; i++){
 //        std::cout << generate_kite() << std::endl;
 //    }
     
-    //Generate random quadrilateral
+//    //Generate random quadrilateral
 //    for(int i = 0; i < 100; i++){
 //        std::cout << generate_quadrilateral() << std::endl;
 //    }

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <string>
+#include "general.hpp"
 
 std::string generate_square();
 

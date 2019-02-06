@@ -6,8 +6,8 @@
 //  Copyright © 2019 Nicole Morris. All rights reserved.
 //
 
-#include "quadrilateral_generator.hpp"
 #include "rectangle_generator.hpp"
+#include "general.hpp"
 
 //Helper fxn: modifies points based on random number
 void modifyRectangle(double& random, Point& b, Point& c, Point& d){

@@ -13,6 +13,9 @@
 		D26BC58E2209B99D00C26F3E /* square_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26BC58C2209B99D00C26F3E /* square_generator.cpp */; };
 		D26BC5912209B9DF00C26F3E /* quadrilateral_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26BC58F2209B9DF00C26F3E /* quadrilateral_generator.cpp */; };
 		D2BC1667220A0EAD003CD459 /* parallelogram_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */; };
+		D2BC166A220AF797003CD459 /* trapezoid_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1668220AF797003CD459 /* trapezoid_generator.cpp */; };
+		D2BC166D220AFD79003CD459 /* kite_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC166B220AFD79003CD459 /* kite_generator.cpp */; };
+		D2BC1676220B03B0003CD459 /* general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1674220B03B0003CD459 /* general.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +43,12 @@
 		D26BC5902209B9DF00C26F3E /* quadrilateral_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quadrilateral_generator.hpp; sourceTree = "<group>"; };
 		D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parallelogram_generator.cpp; sourceTree = "<group>"; };
 		D2BC1666220A0EAD003CD459 /* parallelogram_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = parallelogram_generator.hpp; sourceTree = "<group>"; };
+		D2BC1668220AF797003CD459 /* trapezoid_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = trapezoid_generator.cpp; sourceTree = "<group>"; };
+		D2BC1669220AF797003CD459 /* trapezoid_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = trapezoid_generator.hpp; sourceTree = "<group>"; };
+		D2BC166B220AFD79003CD459 /* kite_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = kite_generator.cpp; sourceTree = "<group>"; };
+		D2BC166C220AFD79003CD459 /* kite_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = kite_generator.hpp; sourceTree = "<group>"; };
+		D2BC1674220B03B0003CD459 /* general.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = general.cpp; sourceTree = "<group>"; };
+		D2BC1675220B03B0003CD459 /* general.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = general.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +92,12 @@
 				D201D8B32209F8520001C705 /* rhombus_generator.hpp */,
 				D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */,
 				D2BC1666220A0EAD003CD459 /* parallelogram_generator.hpp */,
+				D2BC1668220AF797003CD459 /* trapezoid_generator.cpp */,
+				D2BC1669220AF797003CD459 /* trapezoid_generator.hpp */,
+				D2BC166B220AFD79003CD459 /* kite_generator.cpp */,
+				D2BC166C220AFD79003CD459 /* kite_generator.hpp */,
+				D2BC1674220B03B0003CD459 /* general.cpp */,
+				D2BC1675220B03B0003CD459 /* general.hpp */,
 			);
 			path = quadrilateral_generator;
 			sourceTree = "<group>";
@@ -143,11 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BC1676220B03B0003CD459 /* general.cpp in Sources */,
 				D26BC5912209B9DF00C26F3E /* quadrilateral_generator.cpp in Sources */,
+				D2BC166A220AF797003CD459 /* trapezoid_generator.cpp in Sources */,
 				D201D8B42209F8520001C705 /* rhombus_generator.cpp in Sources */,
 				D26BC58E2209B99D00C26F3E /* square_generator.cpp in Sources */,
 				D26BC5732209AE8200C26F3E /* main.cpp in Sources */,
 				D2248F662209DA3300406EED /* rectangle_generator.cpp in Sources */,
+				D2BC166D220AFD79003CD459 /* kite_generator.cpp in Sources */,
 				D2BC1667220A0EAD003CD459 /* parallelogram_generator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
