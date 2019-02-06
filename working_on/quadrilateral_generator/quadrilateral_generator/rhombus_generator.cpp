@@ -42,7 +42,7 @@ void randomSeed(Point &b, Point &c, Point &d){
 //Driver fxn: returns string of 3 points for rhombus (assumes point a is 0,0)
 std::string generate_rhombus(){
     
-    //Seed points for a large rhombus
+    //Seed points for a small rhombus
     Point b;
     Point c;
     Point d;
@@ -50,7 +50,7 @@ std::string generate_rhombus(){
     randomSeed(b,c,d);
     
     //Generate random growth integer
-    double random = randomInteger();
+    double random = random_max_8();
 //    std::cout << random << std::endl;
     
     //Modify points based on random percentage

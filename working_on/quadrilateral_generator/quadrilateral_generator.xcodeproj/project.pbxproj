@@ -80,9 +80,9 @@
 				D2248F642209DA3300406EED /* rectangle_generator.cpp */,
 				D2248F652209DA3300406EED /* rectangle_generator.hpp */,
 				D201D8B22209F8520001C705 /* rhombus_generator.cpp */,
+				D201D8B32209F8520001C705 /* rhombus_generator.hpp */,
 				D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */,
 				D2BC1666220A0EAD003CD459 /* parallelogram_generator.hpp */,
-				D201D8B32209F8520001C705 /* rhombus_generator.hpp */,
 			);
 			path = quadrilateral_generator;
 			sourceTree = "<group>";

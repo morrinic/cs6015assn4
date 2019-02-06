@@ -10,7 +10,7 @@
 #define rectangle_generator_hpp
 
 #include <stdio.h>
-#include <iostream>
+#include <string>
 
 //Returns string of 3 points for rectangle (assumes point a is 0,0)
 std::string generate_rectangle();

@@ -9,8 +9,8 @@
 #ifndef square_generator_hpp
 #define square_generator_hpp
 
-#include <iostream>
 #include <stdio.h>
+#include <string>
 
 std::string generate_square();
 

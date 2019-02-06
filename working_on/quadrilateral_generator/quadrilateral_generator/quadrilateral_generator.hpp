@@ -10,8 +10,7 @@
 #define quadrilateral_generator_hpp
 
 #include <stdio.h>
-
-#include <iostream>
+#include <string>
 
 struct Point {int x; int y;};
 struct Angle {Point a; Point b; Point c; float degrees;};
@@ -23,8 +22,14 @@ double randomPercent();
 //Generate random boolean
 bool randomBoolean();
 
+//Generates random int between 1 - 3
+int random_max_3();
+
 //Generates random int between 1 - 8
-int randomInteger();
+int random_max_8();
+
+//Generates random int between 1 - 33
+int random_max_33();
 
 //Helper fxn: generates string
 std::string to_string(const Point& b, const Point& c, const Point& d);

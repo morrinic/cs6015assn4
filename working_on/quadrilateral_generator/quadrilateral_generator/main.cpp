@@ -10,6 +10,7 @@
 #include "square_generator.hpp"
 #include "rectangle_generator.hpp"
 #include "rhombus_generator.hpp"
+#include "parallelogram_generator.hpp"
 
 #include <iostream>
 
@@ -25,15 +26,15 @@ int main(int argc, const char * argv[]) {
 //        std::cout << generate_rectangle() << std::endl;
 //    }
     
-    //Generate random rhombus
-    for(int i = 0; i < 100; i++){
-        std::cout << generate_rhombus() << std::endl;
-    }
+//    //Generate random rhombus
+//    for(int i = 0; i < 100; i++){
+//        std::cout << generate_rhombus() << std::endl;
+//    }
     
     //Generate random parallelogram
-//    for(int i = 0; i < 100; i++){
-//        std::cout << generate_parallelogram() << std::endl;
-//    }
+    for(int i = 0; i < 100; i++){
+        std::cout << generate_parallelogram() << std::endl;
+    }
     
     //Generate random trapezoid
 //    for(int i = 0; i < 100; i++){

@@ -15,8 +15,16 @@ double randomPercent(){
     return percent / 100.0;
 }
 
-int randomInteger(){
+int random_max_3(){
+    return rand() % 3 + 1;
+}
+
+int random_max_8(){
     return rand() % 8 + 1;
+}
+
+int random_max_33(){
+    return rand() % 33 + 1;
 }
 
 bool randomBoolean(){
