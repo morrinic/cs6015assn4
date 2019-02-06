@@ -9,6 +9,7 @@
 #include "quadrilateral_generator.hpp"
 #include "general.hpp"
 #include <math.h>
+#include <fstream>
 
 //Helper fxn: Calculates the length of a line between 2 xy coordinates
 //Modified from www.geeksforgeeks.org/program-calculate-distance-two-points/
@@ -129,4 +130,20 @@ std::string generate_quadrilateral(){
     
     
     return to_string(b,c,d);
+}
+
+//Driver fxn: outputs a set number of quadrilaterals to a file
+void generate_quadrilaterals(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("quadrilateral.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_quadrilateral() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_quadrilaterals(1);
 }

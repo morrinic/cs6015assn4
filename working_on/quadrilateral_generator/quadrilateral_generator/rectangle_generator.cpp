@@ -8,6 +8,7 @@
 
 #include "rectangle_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 //Helper fxn: modifies points based on random number
 void modifyRectangle(double& random, Point& b, Point& c, Point& d){
@@ -46,3 +47,20 @@ std::string generate_rectangle(){
     
     return to_string(b,c,d);
 }
+
+//Driver fxn: outputs a set number of rectangles to a file
+void generate_rectangles(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("rectangle.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_rectangle() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_rectangles(1);
+}
+

@@ -15,5 +15,5 @@
 
 //Driver fxn: returns string of 3 points for parallelogram (assumes point a is 0,0)
 std::string generate_parallelogram();
-
+void generate_parallelograms(int amount);
 #endif /* parallelogram_generator_hpp */

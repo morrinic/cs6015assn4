@@ -15,5 +15,6 @@
 
 //Driver fxn: returns string of 3 points for rhombus (assumes point a is 0,0)
 std::string generate_rhombus();
+void generate_rhombi(int amount);
 
 #endif /* rhombus_generator_hpp */

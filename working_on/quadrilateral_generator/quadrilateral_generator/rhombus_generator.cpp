@@ -8,6 +8,7 @@
 
 #include "quadrilateral_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 //Helper fxn: modifies points based on random number
 void modifyRhombus(double& random, Point& b, Point& c, Point& d){
@@ -55,3 +56,20 @@ std::string generate_rhombus(){
     
     return to_string(b,c,d);
 }
+
+//Driver fxn: outputs a set number of rhombi to a file
+void generate_rhombi(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("rhombus.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_rhombus() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_rhombi(1);
+}
+

@@ -8,6 +8,7 @@
 
 #include "square_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 //Helper fxn: modifies points based on random number
 void modifySquare(double& random, Point& b, Point& c, Point& d){
@@ -36,3 +37,18 @@ std::string generate_square(){
     return to_string(b,c,d);
 }
 
+//Driver fxn: outputs a set number of squares to a file
+void generate_squares(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("square.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_square() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_squares(1);
+}

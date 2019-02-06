@@ -8,6 +8,7 @@
 
 #include "parallelogram_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 //Driver fxn: returns string of 3 points for parallelogram (assumes point a is 0,0)
 std::string generate_parallelogram(){
@@ -41,3 +42,20 @@ std::string generate_parallelogram(){
     return to_string(b,c,d);
     
 }
+
+//Driver fxn: outputs a set number of parallelogram to a file
+void generate_parallelograms(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("parallelogram.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_parallelogram() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_parallelograms(1);
+}
+

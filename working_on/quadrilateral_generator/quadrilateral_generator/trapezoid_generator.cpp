@@ -8,6 +8,7 @@
 
 #include "trapezoid_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 void makeWideTrapezoid(Point &b, Point &c, Point &d){
     
@@ -84,3 +85,20 @@ std::string generate_trapezoid(){
     return to_string(b,c,d);
     
 }
+
+//Driver fxn: outputs a set number of trapezoids to a file
+void generate_trapezoids(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("trapezoid.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_trapezoid() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_trapezoids(1);
+}
+

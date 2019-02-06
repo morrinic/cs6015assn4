@@ -15,5 +15,5 @@
 
 //Driver fxn: returns string of 3 points for trapezoid (assumes point a is 0,0)
 std::string generate_trapezoid();
-
+void generate_trapezoids(int amount);
 #endif /* trapezoid_generator_hpp */

@@ -13,5 +13,6 @@
 #include "general.hpp"
 
 std::string generate_quadrilateral();
+void generate_quadrilaterals(int amount);
 
 #endif /* quadrilateral_generator_hpp */

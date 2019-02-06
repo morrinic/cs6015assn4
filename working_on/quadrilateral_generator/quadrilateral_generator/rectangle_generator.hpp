@@ -19,4 +19,6 @@ std::string generate_rectangle();
 //Helper fxn: modifies points based on random number
 void modifyRectangle(double& random, Point &b, Point &c, Point &d);
 
+void generate_rectangles(int amount);
+
 #endif /* rectangle_generator_hpp */

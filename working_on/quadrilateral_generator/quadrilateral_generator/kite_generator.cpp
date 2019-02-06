@@ -8,6 +8,7 @@
 
 #include "kite_generator.hpp"
 #include "general.hpp"
+#include <fstream>
 
 //Driver fxn: returns string of 3 points for kite (assumes point a is 0,0)
 std::string generate_kite(){
@@ -32,5 +33,21 @@ std::string generate_kite(){
     d.y = d.y * random;
 
     return to_string(b,c,d);
+}
+
+//Driver fxn: outputs a set number of kites to a file
+void generate_kites(int amount){
+    
+    //Create outstream of data.
+    std::ofstream outFile("kite.txt");
+    
+    for(int i = 0; i < amount; i++){
+        outFile << generate_kite() << "\n";
+    }
+    
+}
+
+int main(int argc, const char * argv[]) {
+    generate_kites(1);
 }
 

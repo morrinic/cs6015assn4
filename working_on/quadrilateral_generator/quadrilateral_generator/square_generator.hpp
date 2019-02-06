@@ -14,5 +14,5 @@
 #include "general.hpp"
 
 std::string generate_square();
-
+void generate_squares(int amount);
 #endif /* square_generator_hpp */

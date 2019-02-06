@@ -15,5 +15,5 @@
 
 //Driver fxn: returns string of 3 points for kite (assumes point a is 0,0)
 std::string generate_kite();
-
+void generate_kites(int amount);
 #endif /* kite_generator_hpp */
