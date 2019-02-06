@@ -49,10 +49,11 @@ void generate_parallelograms(int amount){
     //Create outstream of data.
     std::ofstream outFile("parallelogram.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_parallelogram() << "\n";
     }
     
+    outFile << generate_parallelogram();
 }
 
 int main(int argc, const char * argv[]) {

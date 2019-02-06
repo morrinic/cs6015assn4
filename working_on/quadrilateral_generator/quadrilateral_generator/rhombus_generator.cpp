@@ -63,9 +63,11 @@ void generate_rhombi(int amount){
     //Create outstream of data.
     std::ofstream outFile("rhombus.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_rhombus() << "\n";
     }
+    
+    outFile << generate_rhombus();
     
 }
 

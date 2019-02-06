@@ -92,9 +92,11 @@ void generate_trapezoids(int amount){
     //Create outstream of data.
     std::ofstream outFile("trapezoid.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_trapezoid() << "\n";
     }
+    
+    outFile << generate_trapezoid();
     
 }
 

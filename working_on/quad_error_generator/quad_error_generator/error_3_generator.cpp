@@ -7,3 +7,5 @@
 //
 
 #include "error_3_generator.hpp"
+#include "general.hpp"
+#include <fstream>

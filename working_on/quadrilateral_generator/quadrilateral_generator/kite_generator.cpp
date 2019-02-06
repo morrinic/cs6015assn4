@@ -41,10 +41,11 @@ void generate_kites(int amount){
     //Create outstream of data.
     std::ofstream outFile("kite.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_kite() << "\n";
     }
     
+    outFile << generate_kite();
 }
 
 int main(int argc, const char * argv[]) {

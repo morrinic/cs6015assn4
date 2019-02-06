@@ -138,9 +138,11 @@ void generate_quadrilaterals(int amount){
     //Create outstream of data.
     std::ofstream outFile("quadrilateral.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_quadrilateral() << "\n";
     }
+    
+    outFile << generate_quadrilateral();
     
 }
 

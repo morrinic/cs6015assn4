@@ -11,4 +11,6 @@
 
 #include <stdio.h>
 
+void generate_error_1s(int amount);
+
 #endif /* error_1_generator_hpp */

@@ -43,9 +43,10 @@ void generate_squares(int amount){
     //Create outstream of data.
     std::ofstream outFile("square.txt");
     
-    for(int i = 0; i < amount; i++){
+    for(int i = 0; i < amount-1; i++){
         outFile << generate_square() << "\n";
     }
+    outFile << generate_square();
     
 }
 
