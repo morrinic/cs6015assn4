@@ -1,8 +1,13 @@
 #Generate executables
-#make fuzzer
+make fuzzer
+
+#Variables to store error message
+square="no square errors"; rectangle="no rectangle errors"; rhombus="no rhombus errors"
+parallelogram="no parallelogram errors"; trapezoid="no trapezoid errors"; kite="no kite errors"
+quadrilateral="no quadrilateral errors"; error1="no error 1 errors"
 
 #Generate & test quadrilaterals for correct classification
-for i in {1..100}; do
+for i in {1..200}; do
     
     ./square
     ./main < square.txt | out=$(grep 'square'); output=$?
@@ -19,7 +24,8 @@ for i in {1..100}; do
     ./parallelogram
     ./main < parallelogram.txt | out=$(grep 'parallelogram'); output=$?
     if [[ "$output" -ne 0 ]]; then parallelogram="parallelogram error"; fi
-
+    #if [[ "$output" -ne 0 ]]; then echo "parallelogram error"; fi
+    
     ./trapezoid
     ./main < trapezoid.txt | output=$(grep 'trapezoid'); output=$?
     if [[ "$output" -ne 0 ]]; then trapezoid="trapezoid error"; fi
@@ -35,7 +41,23 @@ done
 
 #Generate & test errors for correct classification
 for i in {1..100}; do
+    
     ./error1
     ./main < error_1.txt | output=$(grep 'error 1'); output=$?
     if [[ "$output" -ne 0 ]]; then error1="error 1 error"; fi
+
+    ./error2
+    ./main < error_2.txt | output=$(grep 'error 2'); output=$?
+    if [[ "$output" -ne 0 ]]; then error1="error 2 error"; fi
+
 done
+
+#Report errors
+echo $square
+echo $rectangle
+echo $rhombus
+echo $parallelogram
+echo $trapezoid
+echo $kite
+echo $quadrilateral
+echo $error1

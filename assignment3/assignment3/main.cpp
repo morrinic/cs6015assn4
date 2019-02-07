@@ -153,7 +153,7 @@ void classifyParallel(Quad quad){
         } else {
             
             //If not rhombus or rectangle...
-//            std:: cout << "parallelogram\n";
+            std:: cout << "parallelogram\n";
             
         }
     }
@@ -400,7 +400,7 @@ std::vector<Quad> storeInputData(){
  * MAIN
  */
 
-int main(int argc, const char * argv[]) {
+int main() {
     
     //Store data points from file
     std::vector<Quad> data = storeInputData();

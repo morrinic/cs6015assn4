@@ -10,13 +10,13 @@ clean:
 	rm -f main
 
 fuzzer:
-	clang++ assignment3/assignment3/main.cpp -o main
+	clang++ -O1 -g -fsanitize=address assignment3/assignment3/main.cpp -o main
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/general_quad.cpp random_testing/quadrilateral_generator/kite_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/parallelogram_generator.cpp random_testing/quadrilateral_generator/rectangle_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/rhombus_generator.cpp random_testing/quadrilateral_generator/square_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/trapezoid_generator.cpp random_testing/quadrilateral_generator/quadrilateral_generator.cpp
 	clang++ -std=c++11 -c random_testing/quad_error_generator/general_error.cpp random_testing/quad_error_generator/error_1_generator.cpp
-	clang++ -std=c++11 -c random_testing/quad_error_generator/error_1_generator.cpp
+	clang++ -std=c++11 -c random_testing/quad_error_generator/error_2_generator.cpp
 	clang++ -o square general_quad.o square_generator.o
 	clang++ -o rectangle general_quad.o rectangle_generator.o
 	clang++ -o rhombus general_quad.o rhombus_generator.o
