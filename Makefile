@@ -1,7 +1,7 @@
 all: main
 
-main: main.cpp
-	clang++ main.cpp -o main
+main: assignment3/assignment3/main.cpp
+	clang++ assignment3/assignment3/main.cpp -o main
 
 test: main
 	./test2.sh
@@ -10,10 +10,11 @@ clean:
 	rm -f main
 
 fuzzer:
-	clang++ -std=c++11 -c quadrilateral_generator/general.cpp quadrilateral_generator/kite_generator.cpp quadrilateral_generator/parallelogram_generator.cpp 
-	clang++ -std=c++11 -c quadrilateral_generator/rectangle_generator.cpp quadrilateral_generator/rhombus_generator.cpp quadrilateral_generator/square_generator.cpp 
-	clang++ -std=c++11 -c quadrilateral_generator/trapezoid_generator.cpp quadrilateral_generator/quadrilateral_generator.cpp 
-	clang++ -std=c++11 -c quad_error
+	clang++ assignment3/assignment3/main.cpp -o main
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/general.cpp random_testing/quadrilateral_generator/kite_generator.cpp 
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/parallelogram_generator.cpp random_testing/quadrilateral_generator/rectangle_generator.cpp 
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/rhombus_generator.cpp random_testing/quadrilateral_generator/square_generator.cpp 
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/trapezoid_generator.cpp random_testing/quadrilateral_generator/quadrilateral_generator.cpp 
 	clang++ -o square general.o square_generator.o
 	clang++ -o rectangle general.o rectangle_generator.o
 	clang++ -o rhombus general.o rhombus_generator.o
@@ -23,7 +24,7 @@ fuzzer:
 	clang++ -o quadrilateral general.o quadrilateral_generator.o
 
 coverage:
-	clang++ -fprofile-instr-generate -fcoverage-mapping main.cpp -o main
+	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
 	LLVM_PROFILE_FILE="main.profraw" ./main < txt_files/test_data.txt
 	-LLVM_PROFILE_FILE="error1_add.profraw" ./main < txt_files/error1_add_points.txt
 	-LLVM_PROFILE_FILE="error1_sub.profraw" ./main < txt_files/error1_sub_points.txt 
