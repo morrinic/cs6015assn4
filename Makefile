@@ -10,6 +10,7 @@ clean:
 	rm -f main
 
 fuzzer:
+	clang++ -O1 -g -fsanitize=address assignment3/assignment3/main.cpp -o main
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/general_quad.cpp random_testing/quadrilateral_generator/kite_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/parallelogram_generator.cpp random_testing/quadrilateral_generator/rectangle_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/rhombus_generator.cpp random_testing/quadrilateral_generator/square_generator.cpp 
