@@ -6,7 +6,7 @@
 //  Copyright © 2019 Nicole Morris. All rights reserved.
 //
 
-#include "general.hpp"
+#include "general_quad.hpp"
 
 #include <cstdlib>
 

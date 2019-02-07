@@ -1,5 +1,41 @@
-#!/bin/bash
+#Generate executables
+#make fuzzer
 
-make fuzzer
+#Generate & test quadrilaterals for correct classification
+for i in {1..100}; do
+    
+    ./square
+    ./main < square.txt | out=$(grep 'square'); output=$?
+    if [[ "$output" -ne 0 ]]; then square="square error"; fi
+    
+    ./rectangle
+    ./main < rectangle.txt | output=$(grep 'rectangle'); output=$?
+    if [[ "$output" -ne 0 ]]; then rectangle="rectangle error"; fi
 
-./random_tests.sh
+    ./rhombus
+    ./main < rhombus.txt | output=$(grep 'rhombus'); output=$?
+    if [[ "$output" -ne 0 ]]; then rhombus="rhombus error"; fi
+
+    ./parallelogram
+    ./main < parallelogram.txt | out=$(grep 'parallelogram'); output=$?
+    if [[ "$output" -ne 0 ]]; then parallelogram="parallelogram error"; fi
+
+    ./trapezoid
+    ./main < trapezoid.txt | output=$(grep 'trapezoid'); output=$?
+    if [[ "$output" -ne 0 ]]; then trapezoid="trapezoid error"; fi
+
+    ./kite
+    ./main < kite.txt | output=$(grep 'kite'); output=$?
+    if [[ "$output" -ne 0 ]]; then kite="kite error"; fi
+
+    ./quadrilateral; output=$?
+    ./main < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
+    if [[ "$output" -ne 0 ]]; then quadrilateral="random quadrilateral error"; fi
+done
+
+#Generate & test errors for correct classification
+for i in {1..100}; do
+    ./error1
+    ./main < error_1.txt | output=$(grep 'error 1'); output=$?
+    if [[ "$output" -ne 0 ]]; then error1="error 1 error"; fi
+done

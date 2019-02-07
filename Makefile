@@ -11,17 +11,21 @@ clean:
 
 fuzzer:
 	clang++ assignment3/assignment3/main.cpp -o main
-	clang++ -std=c++11 -c random_testing/quadrilateral_generator/general.cpp random_testing/quadrilateral_generator/kite_generator.cpp 
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/general_quad.cpp random_testing/quadrilateral_generator/kite_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/parallelogram_generator.cpp random_testing/quadrilateral_generator/rectangle_generator.cpp 
 	clang++ -std=c++11 -c random_testing/quadrilateral_generator/rhombus_generator.cpp random_testing/quadrilateral_generator/square_generator.cpp 
-	clang++ -std=c++11 -c random_testing/quadrilateral_generator/trapezoid_generator.cpp random_testing/quadrilateral_generator/quadrilateral_generator.cpp 
-	clang++ -o square general.o square_generator.o
-	clang++ -o rectangle general.o rectangle_generator.o
-	clang++ -o rhombus general.o rhombus_generator.o
-	clang++ -o parallelogram general.o parallelogram_generator.o
-	clang++ -o trapezoid general.o trapezoid_generator.o
-	clang++ -o kite general.o kite_generator.o
-	clang++ -o quadrilateral general.o quadrilateral_generator.o
+	clang++ -std=c++11 -c random_testing/quadrilateral_generator/trapezoid_generator.cpp random_testing/quadrilateral_generator/quadrilateral_generator.cpp
+	clang++ -std=c++11 -c random_testing/quad_error_generator/general_error.cpp random_testing/quad_error_generator/error_1_generator.cpp
+	clang++ -std=c++11 -c random_testing/quad_error_generator/error_1_generator.cpp
+	clang++ -o square general_quad.o square_generator.o
+	clang++ -o rectangle general_quad.o rectangle_generator.o
+	clang++ -o rhombus general_quad.o rhombus_generator.o
+	clang++ -o parallelogram general_quad.o parallelogram_generator.o
+	clang++ -o trapezoid general_quad.o trapezoid_generator.o
+	clang++ -o kite general_quad.o kite_generator.o
+	clang++ -o quadrilateral general_quad.o quadrilateral_generator.o
+	clang++ -o error1 general_error.o error_1_generator.o
+	clang++ -o error2 general_error.o error_2_generator.o
 
 coverage:
 	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main

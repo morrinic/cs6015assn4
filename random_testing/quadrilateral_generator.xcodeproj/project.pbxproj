@@ -15,7 +15,7 @@
 		D2BC1667220A0EAD003CD459 /* parallelogram_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1665220A0EAD003CD459 /* parallelogram_generator.cpp */; };
 		D2BC166A220AF797003CD459 /* trapezoid_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1668220AF797003CD459 /* trapezoid_generator.cpp */; };
 		D2BC166D220AFD79003CD459 /* kite_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC166B220AFD79003CD459 /* kite_generator.cpp */; };
-		D2BC1676220B03B0003CD459 /* general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1674220B03B0003CD459 /* general.cpp */; };
+		D2BC1676220B03B0003CD459 /* general_quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2BC1674220B03B0003CD459 /* general_quad.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,8 +47,8 @@
 		D2BC1669220AF797003CD459 /* trapezoid_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = trapezoid_generator.hpp; sourceTree = "<group>"; };
 		D2BC166B220AFD79003CD459 /* kite_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = kite_generator.cpp; sourceTree = "<group>"; };
 		D2BC166C220AFD79003CD459 /* kite_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = kite_generator.hpp; sourceTree = "<group>"; };
-		D2BC1674220B03B0003CD459 /* general.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = general.cpp; sourceTree = "<group>"; };
-		D2BC1675220B03B0003CD459 /* general.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = general.hpp; sourceTree = "<group>"; };
+		D2BC1674220B03B0003CD459 /* general_quad.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = general_quad.cpp; sourceTree = "<group>"; };
+		D2BC1675220B03B0003CD459 /* general_quad.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = general_quad.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,8 @@
 				D2BC1669220AF797003CD459 /* trapezoid_generator.hpp */,
 				D2BC166B220AFD79003CD459 /* kite_generator.cpp */,
 				D2BC166C220AFD79003CD459 /* kite_generator.hpp */,
-				D2BC1674220B03B0003CD459 /* general.cpp */,
-				D2BC1675220B03B0003CD459 /* general.hpp */,
+				D2BC1674220B03B0003CD459 /* general_quad.cpp */,
+				D2BC1675220B03B0003CD459 /* general_quad.hpp */,
 			);
 			path = quadrilateral_generator;
 			sourceTree = "<group>";
@@ -158,7 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BC1676220B03B0003CD459 /* general.cpp in Sources */,
+				D2BC1676220B03B0003CD459 /* general_quad.cpp in Sources */,
 				D26BC5912209B9DF00C26F3E /* quadrilateral_generator.cpp in Sources */,
 				D2BC166A220AF797003CD459 /* trapezoid_generator.cpp in Sources */,
 				D201D8B42209F8520001C705 /* rhombus_generator.cpp in Sources */,

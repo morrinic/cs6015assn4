@@ -7,7 +7,7 @@
 //
 
 #include "error_1_generator.hpp"
-#include "general.hpp"
+#include "general_error.hpp"
 #include <fstream>
 #include <vector>
 #include <string>

@@ -153,7 +153,7 @@ void classifyParallel(Quad quad){
         } else {
             
             //If not rhombus or rectangle...
-            std:: cout << "parallelogram\n";
+//            std:: cout << "parallelogram\n";
             
         }
     }

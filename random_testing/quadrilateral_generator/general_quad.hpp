@@ -1,13 +1,13 @@
 //
 //  general.hpp
-//  quad_error_generator
+//  quadrilateral_generator
 //
 //  Created by Nicole Morris on 2/6/19.
 //  Copyright © 2019 Nicole Morris. All rights reserved.
 //
 
-#ifndef general_hpp
-#define general_hpp
+#ifndef general_quad_hpp
+#define general_quad_hpp
 
 #include <stdio.h>
 #include <string>
@@ -16,9 +16,7 @@
 struct Point {int x; int y;};
 
 //Helper fxn: generates string
-std::string pt_to_string(const Point &p);
-std::string pts_to_string(const Point& b, const Point& c, const Point& d);
-std::string vpts_to_string(const std::vector<Point> &points);
+std::string to_string(const Point& b, const Point& c, const Point& d);
 
 //Generate random percent (decimal between 0 - 1)
 double randomPercent();
@@ -32,9 +30,6 @@ int random_max_3();
 //Generates random int between 1 - 4
 int random_max_4();
 
-//Generates random int between 1 - 6
-int random_max_6();
-
 //Generates random int between 1 - 8
 int random_max_8();
 
@@ -47,7 +42,4 @@ int random_max_50();
 //Generates random int between 1 - 100
 int random_max_100();
 
-//Generates a random ascii character between 1 - 100
-std::string random_character();
-
-#endif /* general_hpp */
+#endif /* general_quad_hpp */

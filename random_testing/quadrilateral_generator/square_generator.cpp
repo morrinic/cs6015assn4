@@ -7,7 +7,7 @@
 //
 
 #include "square_generator.hpp"
-#include "general.hpp"
+#include "general_quad.hpp"
 #include <fstream>
 
 //Helper fxn: modifies points based on random number

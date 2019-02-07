@@ -7,7 +7,7 @@
 //
 
 #include "trapezoid_generator.hpp"
-#include "general.hpp"
+#include "general_quad.hpp"
 #include <fstream>
 
 void makeWideTrapezoid(Point &b, Point &c, Point &d){

@@ -7,7 +7,7 @@
 //
 
 #include "error_2_generator.hpp"
-#include "general.hpp"
+#include "general_error.hpp"
 #include <fstream>
 
 std::string generate_error_2(){

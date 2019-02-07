@@ -11,7 +11,7 @@
 		D20B4306220B2D4100C8D600 /* error_2_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20B4304220B2D4100C8D600 /* error_2_generator.cpp */; };
 		D20B4309220B2D4E00C8D600 /* error_3_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20B4307220B2D4E00C8D600 /* error_3_generator.cpp */; };
 		D20B430C220B2D6A00C8D600 /* error_4_generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D20B430A220B2D6A00C8D600 /* error_4_generator.cpp */; };
-		D2CEC7B1220B72D500FD3E14 /* general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC7AF220B72D500FD3E14 /* general.cpp */; };
+		D2CEC7B1220B72D500FD3E14 /* general_error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2CEC7AF220B72D500FD3E14 /* general_error.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,8 +36,8 @@
 		D20B4308220B2D4E00C8D600 /* error_3_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = error_3_generator.hpp; sourceTree = "<group>"; };
 		D20B430A220B2D6A00C8D600 /* error_4_generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = error_4_generator.cpp; sourceTree = "<group>"; };
 		D20B430B220B2D6A00C8D600 /* error_4_generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = error_4_generator.hpp; sourceTree = "<group>"; };
-		D2CEC7AF220B72D500FD3E14 /* general.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = general.cpp; sourceTree = "<group>"; };
-		D2CEC7B0220B72D500FD3E14 /* general.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = general.hpp; sourceTree = "<group>"; };
+		D2CEC7AF220B72D500FD3E14 /* general_error.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = general_error.cpp; sourceTree = "<group>"; };
+		D2CEC7B0220B72D500FD3E14 /* general_error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = general_error.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +70,8 @@
 		D20B42F9220B2D1200C8D600 /* quad_error_generator */ = {
 			isa = PBXGroup;
 			children = (
-				D2CEC7AF220B72D500FD3E14 /* general.cpp */,
-				D2CEC7B0220B72D500FD3E14 /* general.hpp */,
+				D2CEC7AF220B72D500FD3E14 /* general_error.cpp */,
+				D2CEC7B0220B72D500FD3E14 /* general_error.hpp */,
 				D20B4301220B2D3200C8D600 /* error_1_generator.cpp */,
 				D20B4302220B2D3200C8D600 /* error_1_generator.hpp */,
 				D20B4304220B2D4100C8D600 /* error_2_generator.cpp */,
@@ -142,7 +142,7 @@
 			files = (
 				D20B430C220B2D6A00C8D600 /* error_4_generator.cpp in Sources */,
 				D20B4309220B2D4E00C8D600 /* error_3_generator.cpp in Sources */,
-				D2CEC7B1220B72D500FD3E14 /* general.cpp in Sources */,
+				D2CEC7B1220B72D500FD3E14 /* general_error.cpp in Sources */,
 				D20B4303220B2D3200C8D600 /* error_1_generator.cpp in Sources */,
 				D20B4306220B2D4100C8D600 /* error_2_generator.cpp in Sources */,
 			);

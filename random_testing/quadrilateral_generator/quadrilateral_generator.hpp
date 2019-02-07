@@ -10,7 +10,7 @@
 #define quadrilateral_generator_hpp
 
 #include <stdio.h>
-#include "general.hpp"
+#include <string>
 
 std::string generate_quadrilateral();
 void generate_quadrilaterals(int amount);

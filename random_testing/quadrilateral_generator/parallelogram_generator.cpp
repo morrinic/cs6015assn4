@@ -7,7 +7,7 @@
 //
 
 #include "parallelogram_generator.hpp"
-#include "general.hpp"
+#include "general_quad.hpp"
 #include <fstream>
 
 //Driver fxn: returns string of 3 points for parallelogram (assumes point a is 0,0)

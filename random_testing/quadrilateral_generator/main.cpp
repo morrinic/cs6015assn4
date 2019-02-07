@@ -13,7 +13,7 @@
 #include "parallelogram_generator.hpp"
 #include "trapezoid_generator.hpp"
 #include "kite_generator.hpp"
-#include "general.hpp"
+#include "general_quad.hpp"
 #include <iostream>
 
 int main(int argc, const char * argv[]) {

@@ -7,7 +7,7 @@
 //
 
 #include "quadrilateral_generator.hpp"
-#include "general.hpp"
+#include "general_quad.hpp"
 #include <math.h>
 #include <fstream>
 
