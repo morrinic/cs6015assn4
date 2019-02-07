@@ -1,63 +1,94 @@
 #Generate executables
 make fuzzer
 
+#Remove previous coverage files
+rm main.profraw
+rm temp.profdata
+rm main.profdata
+
+#Compile for coverage
+clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
+
 #Variables to store error message
 square="no square errors"; rectangle="no rectangle errors"; rhombus="no rhombus errors"
 parallelogram="no parallelogram errors"; trapezoid="no trapezoid errors"; kite="no kite errors"
-quadrilateral="no quadrilateral errors"; error1="no error 1 errors"
+quadrilateral="no quadrilateral errors"; error1="no error 1 errors"; error2="no error 2 errors"
 
 #Generate & test quadrilaterals for correct classification
 for i in {1..200}; do
     
     ./square
-    ./main < square.txt | out=$(grep 'square'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < square.txt | out=$(grep 'square'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw -o merge.profdata
     if [[ "$output" -ne 0 ]]; then square="square error"; fi
     
     ./rectangle
-    ./main < rectangle.txt | output=$(grep 'rectangle'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < rectangle.txt | output=$(grep 'rectangle'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then rectangle="rectangle error"; fi
 
     ./rhombus
-    ./main < rhombus.txt | output=$(grep 'rhombus'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < rhombus.txt | output=$(grep 'rhombus'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then rhombus="rhombus error"; fi
 
     ./parallelogram
-    ./main < parallelogram.txt | out=$(grep 'parallelogram'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < parallelogram.txt | out=$(grep 'parallelogram'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then parallelogram="parallelogram error"; fi
-    #if [[ "$output" -ne 0 ]]; then echo "parallelogram error"; fi
     
     ./trapezoid
-    ./main < trapezoid.txt | output=$(grep 'trapezoid'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < trapezoid.txt | output=$(grep 'trapezoid'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then trapezoid="trapezoid error"; fi
 
     ./kite
-    ./main < kite.txt | output=$(grep 'kite'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < kite.txt | output=$(grep 'kite'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then kite="kite error"; fi
 
     ./quadrilateral; output=$?
-    ./main < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
+    LLVM_PROFILE_FILE="main.profraw" ./main < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then quadrilateral="random quadrilateral error"; fi
+
 done
 
 #Generate & test errors for correct classification
 for i in {1..100}; do
     
     ./error1
-    ./main < error_1.txt | output=$(grep 'error 1'); output=$?
+    LLVM_PROFILE_FILE="main.profraw" ./main < error_1.txt | output=$(grep 'error 1'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then error1="error 1 error"; fi
 
     ./error2
-    ./main < error_2.txt | output=$(grep 'error 2'); output=$?
-    if [[ "$output" -ne 0 ]]; then error1="error 2 error"; fi
+    LLVM_PROFILE_FILE="main.profraw" ./main < error_2.txt | output=$(grep 'error 2'); output=$?
+    xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
+    mv temp.profdata merge.profdata
+    if [[ "$output" -ne 0 ]]; then error2="error 2 error"; fi
 
 done
 
+#Save coverage
+xcrun llvm-cov show ./main -instr-profile=merge.profdata > coverage.txt
+
 #Report errors
-echo $square
-echo $rectangle
-echo $rhombus
-echo $parallelogram
-echo $trapezoid
-echo $kite
-echo $quadrilateral
-echo $error1
+result="OK"
+if [[ "$square" = "square error" ]]; then result="ERROR"; fi
+if [[ "$rectangle" = "rectangle error" ]]; then result="ERROR"; fi
+if [[ "$rhombus" = "rhombus error" ]]; then result="ERROR"; fi
+if [[ "$parallelogram" = "parallelogram error" ]]; then result="ERROR"; fi
+if [[ "$trapezoid" = "trapezoid error" ]]; then result="ERROR"; fi
+if [[ "$kite" = "kite error" ]]; then result="ERROR"; fi
+if [[ "$quadrilateral" = "quadrilateral error" ]]; then result="ERROR"; fi
+if [[ "$error1" = "error 1 error" ]]; then result="ERROR"; fi
+if [[ "$error2" = "error 2 error" ]]; then result="ERROR"; fi
+echo $result

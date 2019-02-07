@@ -1,0 +1,63 @@
+#Generate executables
+make fuzzer
+
+#Variables to store error message
+square="no square errors"; rectangle="no rectangle errors"; rhombus="no rhombus errors"
+parallelogram="no parallelogram errors"; trapezoid="no trapezoid errors"; kite="no kite errors"
+quadrilateral="no quadrilateral errors"; error1="no error 1 errors"
+
+#Generate & test quadrilaterals for correct classification
+for i in {1..200}; do
+    
+    ./square
+    ./natalie < square.txt | out=$(grep 'square'); output=$?
+    if [[ "$output" -ne 0 ]]; then square="square error"; fi
+    
+    ./rectangle
+    ./natalie < rectangle.txt | output=$(grep 'rectangle'); output=$?
+    if [[ "$output" -ne 0 ]]; then rectangle="rectangle error"; fi
+
+    ./rhombus
+    ./natalie < rhombus.txt | output=$(grep 'rhombus'); output=$?
+    if [[ "$output" -ne 0 ]]; then rhombus="rhombus error"; fi
+
+    ./parallelogram
+    ./natalie < parallelogram.txt | out=$(grep 'parallelogram'); output=$?
+    if [[ "$output" -ne 0 ]]; then parallelogram="parallelogram error"; fi
+    #if [[ "$output" -ne 0 ]]; then echo "parallelogram error"; fi
+    
+    ./trapezoid
+    ./natalie < trapezoid.txt | output=$(grep 'trapezoid'); output=$?
+    if [[ "$output" -ne 0 ]]; then trapezoid="trapezoid error"; fi
+
+    ./kite
+    ./natalie < kite.txt | output=$(grep 'kite'); output=$?
+    if [[ "$output" -ne 0 ]]; then kite="kite error"; fi
+
+    ./quadrilateral; output=$?
+    ./natalie < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
+    if [[ "$output" -ne 0 ]]; then quadrilateral="random quadrilateral error"; fi
+done
+
+#Generate & test errors for correct classification
+for i in {1..100}; do
+    
+    ./error1
+    ./natalie < error_1.txt | output=$(grep 'error 1'); output=$?
+    if [[ "$output" -ne 0 ]]; then error1="error 1 error"; fi
+
+    ./error2
+    ./natalie < error_2.txt | output=$(grep 'error 2'); output=$?
+    if [[ "$output" -ne 0 ]]; then error1="error 2 error"; fi
+
+done
+
+#Report errors
+echo $square
+echo $rectangle
+echo $rhombus
+echo $parallelogram
+echo $trapezoid
+echo $kite
+echo $quadrilateral
+echo $error1

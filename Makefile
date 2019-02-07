@@ -27,6 +27,10 @@ fuzzer:
 	clang++ -o error1 general_error.o error_1_generator.o
 	clang++ -o error2 general_error.o error_2_generator.o
 
+fuzz_coverage:
+	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
+	
+
 coverage:
 	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
 	LLVM_PROFILE_FILE="main.profraw" ./main < txt_files/test_data.txt
@@ -39,4 +43,4 @@ coverage:
 	-LLVM_PROFILE_FILE="error3_point.profraw" ./main < txt_files/error3_line_collision.txt
 	-LLVM_PROFILE_FILE="error4_collinear.profraw" ./main < txt_files/error4_collinear.txt
 	xcrun llvm-profdata merge -sparse main.profraw error1_add.profraw error1_sub.profraw error1_high.profraw error1_low.profraw error1_letter.profraw error2_point.profraw error3_point.profraw error4_collinear.profraw -o main.profdata
-	xcrun llvm-cov show ./main -instr-profile=main.profdata
+	xcrun llvm-cov show ./main -instr-profile=main.profdata > coverage.txt
