@@ -27,10 +27,6 @@ fuzzer:
 	clang++ -o error1 general_error.o error_1_generator.o
 	clang++ -o error2 general_error.o error_2_generator.o
 
-fuzz_coverage:
-	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
-	
-
 coverage:
 	clang++ -fprofile-instr-generate -fcoverage-mapping assignment3/assignment3/main.cpp -o main
 	LLVM_PROFILE_FILE="main.profraw" ./main < txt_files/test_data.txt

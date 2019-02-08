@@ -15,7 +15,7 @@ parallelogram="no parallelogram errors"; trapezoid="no trapezoid errors"; kite="
 quadrilateral="no quadrilateral errors"; error1="no error 1 errors"; error2="no error 2 errors"
 
 #Generate & test quadrilaterals for correct classification
-for i in {1..200}; do
+for i in {1..1000}; do
     
     ./square
     LLVM_PROFILE_FILE="main.profraw" ./main < square.txt | out=$(grep 'square'); output=$?
@@ -51,6 +51,10 @@ for i in {1..200}; do
     xcrun llvm-profdata merge -sparse main.profraw merge.profdata -o temp.profdata
     mv temp.profdata merge.profdata
     if [[ "$output" -ne 0 ]]; then kite="kite error"; fi
+done
+
+#Generate & test errors for quadrilaterals generated from random points
+for i in {1..2000}; do
 
     ./quadrilateral; output=$?
     LLVM_PROFILE_FILE="main.profraw" ./main < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
@@ -61,7 +65,7 @@ for i in {1..200}; do
 done
 
 #Generate & test errors for correct classification
-for i in {1..100}; do
+for i in {1..1000}; do
     
     ./error1
     LLVM_PROFILE_FILE="main.profraw" ./main < error_1.txt | output=$(grep 'error 1'); output=$?

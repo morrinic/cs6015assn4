@@ -7,7 +7,7 @@ parallelogram="no parallelogram errors"; trapezoid="no trapezoid errors"; kite="
 quadrilateral="no quadrilateral errors"; error1="no error 1 errors"
 
 #Generate & test quadrilaterals for correct classification
-for i in {1..200}; do
+for i in {1..1000}; do
     
     ./square
     ./natalie < square.txt | out=$(grep 'square'); output=$?
@@ -33,14 +33,17 @@ for i in {1..200}; do
     ./kite
     ./natalie < kite.txt | output=$(grep 'kite'); output=$?
     if [[ "$output" -ne 0 ]]; then kite="kite error"; fi
+done
 
+#Generate & test errors for quadrilaterals generated from random points
+for i in {1..2000}; do
     ./quadrilateral; output=$?
     ./natalie < quadrilateral.txt | output=$(grep 'quadrilateral' || grep 'square' || grep 'rectangle' || grep 'rhombus' || grep 'parallelogram' || grep 'trapezoid' || grep 'kite')
     if [[ "$output" -ne 0 ]]; then quadrilateral="random quadrilateral error"; fi
 done
 
 #Generate & test errors for correct classification
-for i in {1..100}; do
+for i in {1..1000}; do
     
     ./error1
     ./natalie < error_1.txt | output=$(grep 'error 1'); output=$?

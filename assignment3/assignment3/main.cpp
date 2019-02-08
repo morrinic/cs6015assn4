@@ -11,6 +11,7 @@
 #include <fstream>
 #include <math.h>
 #include <sstream>
+#include <assert.h>
 
 struct Point {double x; double y;};
 struct Angle {Point a; Point b; Point c; float degrees;};
@@ -24,7 +25,6 @@ struct Quad {float ab; float bc; float cd; float da; Angle a; Angle b; Angle c; 
 //Calculates the length of a line between 2 xy coordinates
 //Modified from www.geeksforgeeks.org/program-calculate-distance-two-points/
 float calcLength(Point a, Point b){
-    
     return sqrt(pow(b.x - a.x,2) + pow(b.y-a.y,2));
 }
 
@@ -32,12 +32,12 @@ float calcLength(Point a, Point b){
 //Modified from www.geeksforgeeks.org/find-angles-given-triangle/
 float calcDeg(Point a, Point b, Point c){
     
-    double pi = 3.1415926535;
+//    long pi = 3.1415926535;
     float sideAB = calcLength(a,b);
     float sideBC = calcLength(b,c);
     float sideCA = calcLength(c,a);
     
-    return (180 / pi * (acos((pow(sideAB,2) + pow(sideBC,2) - pow(sideCA,2)) / (2 * sideAB * sideBC))));
+    return (180 / M_PI * (acos((pow(sideAB,2) + pow(sideBC,2) - pow(sideCA,2)) / (2 * sideAB * sideBC))));
     
 }
 
@@ -292,7 +292,8 @@ void checkLineColl(Point a, Point b, Point c, Point d){
 
 //Modified from www.geeksforgeeks.org/program-check-three-points-collinear
 double calcTriArea(Point a, Point b, Point c){
-    return a.x * (b.y-c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y);
+    double area = a.x * (b.y-c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y);
+    return area;
 }
 
 void checkCollinear(Point a, Point b, Point c, Point d){
@@ -339,12 +340,14 @@ std::vector<std::string> parseLine(std::string line){
  */
 
 //Stores a quadrilateral
-Quad storeQuad(Point a, Point b, Point c, Point d){
+Quad storeQuad(const Point &a, const Point &b, const Point &c, const Point &d){
     
     Angle angA = {d,a,b, calcDeg(d,a,b)};
     Angle angB = {a,b,c, calcDeg(a,b,c)};
     Angle angC = {b,c,d, calcDeg(b,c,d)};
     Angle angD = {c,d,a, calcDeg(c,b,a)};
+
+//    assert(angA.degrees + angB.degrees + angC.degrees + angD.degrees == 360.0);
     
     Quad quad = {calcLength(a,b), calcLength(b,c), calcLength(c,d), calcLength(d,a), angA, angB, angC, angD};
     
